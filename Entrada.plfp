@@ -18,7 +18,7 @@ Carrera: "Ciencias y Sistemas" {
             Prerrequisitos: (101);
         }
         Curso: 147 {
-            Nombre: "Física Básica";
+            Nombre: "Física Basica";
             Area: 64;
             Prerrequisitos: (101);
         }

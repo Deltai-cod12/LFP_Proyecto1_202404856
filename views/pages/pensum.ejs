@@ -13,7 +13,7 @@
         <table class="pensum-table">
             <thead>
                 <tr>
-                    <th>Semestre / Área</th>
+                    <th>Semestre / area</th>
                     <th>01</th>
                     <th>02</th>
                     <th>03</th>
@@ -28,7 +28,7 @@
                     <td class="semestre-cell">Semestre <%= semestre.numero %></td>
 
                     <% for(let area = 1; area <= 6; area++) { 
-                        // Buscar cursos de este semestre y área
+                        // Buscar cursos de este semestre y area
                         const cursosArea = semestre.cursos.filter(c => parseInt(c.area) === area);
                     %>
                     <td class="course-cell">

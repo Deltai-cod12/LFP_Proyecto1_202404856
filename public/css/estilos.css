@@ -68,6 +68,9 @@ main {
   resize: vertical;
   color: #222;
   box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 button[type="submit"] {
@@ -118,3 +121,42 @@ th {
   background-color: #e0e0e0;
   cursor: default;
 }
+
+.token-paren {
+  color: #000000; 
+}
+
+.token-brace {
+  color: #000000; 
+}
+
+.token-bracket {
+  color: #16a085; 
+}
+
+.token-colon,
+.token-semicolon,
+.token-comma {
+  color: #8102b4; 
+}
+
+.token-number {
+  color: #9006ba; 
+}
+
+.token-string {
+  color: #f06814; 
+}
+
+.token-reserved {
+  color: #1b4be9; 
+  font-weight: bold;
+}
+
+.token-error {
+  background-color: #f8d7da;
+  color: #6c0b14;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+

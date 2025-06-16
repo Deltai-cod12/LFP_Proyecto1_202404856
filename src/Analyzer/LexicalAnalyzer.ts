@@ -21,7 +21,7 @@ class LexicalAnalyzer {
     }
 
     scanner(input: string) {
-        // Asegúrate de limpiar las listas al inicio de cada escaneo
+        // Asegurate de limpiar las listas al inicio de cada escaneo
         this.tokenList = [];
         this.errorList = [];
         this.row = 1; // Reiniciar fila y columna
@@ -32,19 +32,19 @@ class LexicalAnalyzer {
         input += '#'; // Marcador de fin de archivo
 
         for (let i: number = 0; i < input.length; i++) {
-            let char = input[i]; // No declarar char con 'let' en cada iteración
+            let char = input[i]; // No declarar char con 'let' en cada iteracion
 
             // Esto es crucial para manejar los caracteres que no inician un token
             // o que son solo espacios en blanco.
             if (this.state === 0) { // Solo en el estado inicial
                 if (char === ' ' || char === '\t') {
                     this.column++;
-                    continue; // Consumir espacio/tab y pasar al siguiente carácter
+                    continue; // Consumir espacio/tab y pasar al siguiente caracter
                 }
                 if (char === '\n') {
                     this.row++;
                     this.column = 1;
-                    continue; // Consumir salto de línea y pasar al siguiente carácter
+                    continue; // Consumir salto de línea y pasar al siguiente caracter
                 }
                 if (char === '\r') { // Manejar \r por si es CRLF
                     // Solo incrementa la fila si no es seguido de \n (ya lo maneja \n)
@@ -63,7 +63,7 @@ class LexicalAnalyzer {
                         case '[':
                             this.addToken(Type.BRACKET_OPEN, char, this.row, this.column);
                             this.column++;
-                            break; // No es necesario cambiar de estado para un solo carácter
+                            break; // No es necesario cambiar de estado para un solo caracter
                         case ']':
                             this.addToken(Type.BRACKET_CLOSE, char, this.row, this.column);
                             this.column++;
@@ -115,10 +115,10 @@ class LexicalAnalyzer {
                             if (/[a-zA-Z]/.test(char)) { // Identificadores y palabras reservadas
                                 this.state = 11;
                                 this.addCharacter(char);
-                            } else if (/\d/.test(char)) { // Números
+                            } else if (/\d/.test(char)) { // Numeros
                                 this.state = 10;
                                 this.addCharacter(char);
-                            } else { // Cualquier otro carácter desconocido
+                            } else { // Cualquier otro caracter desconocido
                                 this.addError(Type.UNKNOW, char, this.row, this.column);
                                 this.column++;
                             }
@@ -126,13 +126,13 @@ class LexicalAnalyzer {
                     }
                     break; // Fin de case 0
 
-                case 10: // Números
+                case 10: // Numeros
                     if (/\d/.test(char)) {
                         this.addCharacter(char);
                     } else {
                         this.addToken(Type.NUMBER, this.auxChar, this.row, this.column - this.auxChar.length);
                         this.clean();
-                        i--; // Reevaluar el carácter actual en el estado 0
+                        i--; // Reevaluar el caracter actual en el estado 0
                     }
                     break;
 
@@ -144,28 +144,28 @@ class LexicalAnalyzer {
                             this.addToken(Type.RESERVED_WORD, this.auxChar, this.row, this.column - this.auxChar.length);
                         } else {
                             // Si es un identificador, podrías tener un Type.IDENTIFIER
-                            // Por ahora, si no es palabra reservada, lo dejas como UNKNOW según tu lógica original
+                            // Por ahora, si no es palabra reservada, lo dejas como UNKNOW segun tu logica original
                             this.addError(Type.UNKNOW, this.auxChar, this.row, this.column - this.auxChar.length);
                         }
                         this.clean();
-                        i--; // Reevaluar el carácter actual en el estado 0
+                        i--; // Reevaluar el caracter actual en el estado 0
                     }
                     break;
 
                 case 12: // Cadena (STRING)
                     this.addCharacter(char);
                     if (char === '"') {
-                        // Se encontró la comilla de cierre
+                        // Se encontro la comilla de cierre
                         this.addToken(Type.STRING, this.auxChar, this.row, this.column - this.auxChar.length);
                         this.clean();
                     } else if (i === input.length - 1) { // Fin de archivo inesperado dentro de una cadena
                         this.addError(Type.UNKNOW, this.auxChar, this.row, this.column - this.auxChar.length);
                         this.clean();
                     }
-                    // Si el carácter no es '"' y no es fin de archivo, sigue en el estado 12 (consumiendo la cadena)
+                    // Si el caracter no es '"' y no es fin de archivo, sigue en el estado 12 (consumiendo la cadena)
                     break;
 
-                // Los casos 1 al 9 no son necesarios como estados si solo consumen un carácter.
+                // Los casos 1 al 9 no son necesarios como estados si solo consumen un caracter.
                 // Pueden manejarse directamente en el case 0. He eliminado los estados intermedios.
             }
         }

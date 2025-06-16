@@ -8,10 +8,10 @@ const path_1 = __importDefault(require("path"));
 const analyze_route_1 = __importDefault(require("./routes/analyze.route"));
 const app = (0, express_1.default)();
 const PORT = 3000;
-// Configuración de vistas EJS
+// Configuracion de vistas EJS
 app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
-// Archivos estáticos
+// Archivos estaticos
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 // Middleware para procesar formularios
 app.use(express_1.default.urlencoded({ extended: true }));

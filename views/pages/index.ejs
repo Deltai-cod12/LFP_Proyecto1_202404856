@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Pensum USAC - Análisis Léxico</title>
+  <title>Pensum USAC - Analisis Léxico</title>
   <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
@@ -39,9 +39,16 @@
     <form action="/analyze" method="POST">
       <section id="editor-container">
         <h2>Editor de Entrada</h2>
-        <textarea id="editor" name="txtArea" placeholder="Escribe o carga tu archivo .plfp aquí..."><%= codigo || '' %></textarea>
+      
+        
+        <div id="editor" contenteditable="true" spellcheck="false" class="editor">
+          <%- codigo || '' %>
+        </div>
+
+      
+        <input type="hidden" name="txtArea" id="txtAreaHidden">
+      
         <button type="submit">Analizar</button>
-        <pre id="resultado"></pre>
       </section>
     </form>
 
@@ -76,5 +83,12 @@
 
   <input type="file" id="fileInput" accept=".plfp" style="display:none">
   <script src="/js/index.js"></script>
+<% if (tokens && tokens.length > 0) { %>
+  <script>
+    window.tokenList = <%- JSON.stringify(tokens).replace(/</g, '\\u003c') %>;
+  </script>
+<% } %>
+
+
 </body>
 </html>

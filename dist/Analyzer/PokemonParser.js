@@ -31,7 +31,7 @@ class PokemonParser {
                 i += 4; // Saltar hasta el {
                 continue;
             }
-            // Detectar definición de Pokémon (solo si hay jugador actual)
+            // Detectar definicion de Pokémon (solo si hay jugador actual)
             if (this.jugadorActual &&
                 token.getType() === Token_1.Type.STRING &&
                 ((_d = this.tokens[i + 1]) === null || _d === void 0 ? void 0 : _d.getType()) === Token_1.Type.BRACKET_OPEN &&
@@ -81,13 +81,13 @@ class PokemonParser {
                     });
                 }
                 else {
-                    console.warn(`Pokémon "${nombrePokemon}" con estadísticas incompletas. No será agregado.`);
+                    console.warn(`Pokémon "${nombrePokemon}" con estadísticas incompletas. No sera agregado.`);
                 }
                 continue;
             }
             i++; // Incrementar manualmente
         }
-        // Agregar el último jugador encontrado si existe
+        // Agregar el ultimo jugador encontrado si existe
         if (this.jugadorActual) {
             this.jugadores.push(this.jugadorActual);
             this.jugadorActual = null;

@@ -43,7 +43,8 @@ export const analyze = (req: Request, res: Response) => {
         codigo: input,
         contador: tokensToSend.length,
         carrera: pensumExtraido.carrera,
-        semestres: pensumExtraido.semestres
+        semestres: pensumExtraido.semestres,
+        tokenListScript: `<script>window.tokenList = ${JSON.stringify(tokensToSend)};</script>`
     });
 };
 
