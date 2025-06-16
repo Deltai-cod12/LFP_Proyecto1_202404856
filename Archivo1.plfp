@@ -1,0 +1,70 @@
+Carrera: "Ciencias y Sistemas"[
+    Semestre: 01 {
+        Curso: 101 {
+            Nombre: "Mate Basica 1";
+            Area: 04;
+            Prerrequisitos: ();
+        }
+        Curso: 017 {
+            Nombre: "Social Humanistica 1";
+            Area: 04;
+            Prerrequisitos: ();
+        }
+    }
+    Semestre: 02 {
+        Curso: 103 {
+            Nombre: "Mate Basica 2";
+            Area: 04;
+            Prerrequisitos: (101);
+        }
+        Curso: 147 {
+            Nombre: "Fisca Basica";
+            Area: 04;
+            Prerrequisitos: (101);
+        }
+    }
+    Semestre: 03 {
+        Curso: 795 {
+            Nombre: "Logica de Sistemas";
+            Area: 01;
+            Prerrequisitos: (103);
+        }
+        Curso: 960 {
+            Nombre: "Mate Computo 1";
+            Area: 02;
+            Prerrequisitos: (103);
+        }
+        Curso: 770 {
+            Nombre: "Intr. A Prog. y Computacion 1";
+            Area: 03;
+            Prerrequisitos: (103);
+        }
+        Curso: 107 {
+            Nombre: "Mate Intermedia 1";
+            Area: 04;
+            Prerrequisitos: (103);
+        }
+        Curso: 150 {
+            Nombre: "Fisica 1";
+            Area: 04;
+            Prerrequisitos: (103, 147);
+        }
+    }
+    Semestre: 04 {
+        Curso: 796 {
+            Nombre: "Lenguajes Formales y de Prog.";
+            Area: 02;
+            Prerrequisitos: (770, 795, 960);
+        }
+        Curso: 771 {
+            Nombre: "Intr. A la Prog. y Computacion 2";
+            Area: 03;
+            Prerrequisitos: (107, 770, 795, 960);
+        }
+        Curso: 2025 {
+            Nombre: "Practica Inicial";
+            Area: 05;
+            Prerrequisitos: (103, 770);
+        }
+    }
+]

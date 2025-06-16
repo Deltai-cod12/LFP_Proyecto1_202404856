@@ -1,0 +1,34 @@
+Carrera: "Ciencias y Sistemas" {
+    Semestre: 01 {
+        Curso: 101 {
+            Nombre: "Mate Basica 1";
+            Area: 64;
+            Prerrequisitos: ();
+        }
+        Curso: 017 {
+            Nombre: "Social Humanistica 1";
+            Area: 84;
+            Prerrequisitos: ();
+        }
+    }
+    Semestre: 02 {
+        Curso: 103 {
+            Nombre: "Mate Basics 2";
+            Area: 64;
+            Prerrequisitos: (101);
+        }
+        Curso: 147 {
+            Nombre: "Física Básica";
+            Area: 64;
+            Prerrequisitos: (101);
+        }
+    }
+    Semestre: 03 {
+        Curso: 795 {
+            Nombre: "Logica de Sistemas";
+            Area: 81;
+            Prerrequisitos: (103);
+        }
+    }
+
+}
